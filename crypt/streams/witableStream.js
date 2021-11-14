@@ -1,4 +1,4 @@
-const { Writable } = require("stream");
+const { Writable } = require('stream');
 const fs = require('fs');
 
 class WritableStream extends Writable {
@@ -9,28 +9,18 @@ class WritableStream extends Writable {
   }
 
   _construct(callback) {
-    if (this.file) {
-      fs.open(this.file, 'a', (err, fd) => {
-        if (err) {
-          callback(err);
-        } else {
-          this.fd = fd;
-          callback();
-        }
-      });
-    } else {
-      process.stdout.setEncoding('utf8');
-      callback();
-    }
+    fs.open(this.file, 'a', (err, fd) => {
+      if (err) {
+        callback(err);
+      } else {
+        this.fd = fd;
+        callback();
+      }
+    });
   }
 
   _write(chunk, encoding, callback) {
-    if (this.file) {
-      fs.write(this.fd, chunk, callback);
-    } else {
-      process.stdout.write(chunk);
-      callback();
-    }
+    fs.write(this.fd, chunk, callback);
   }
 
   _destroy(err, callback) {

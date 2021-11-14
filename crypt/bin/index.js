@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 const { config, input, output } = require('./../program/commander');
-const caesarTransormStream = require('../streams/caesarTransformStream');
-const rotTransformStream = require('../streams/rotTransformStream');
-const atbashTransformStream = require('../streams/atbashTransfromStream');
+const CaesarTransormStream = require('../streams/caesarTransformStream');
+const RotTransformStream = require('../streams/rotTransformStream');
+const AtbashTransformStream = require('../streams/atbashTransfromStream');
 const cli = require('./../cli');
 const error = require('./../program/error');
-const readableStream = require('../streams/readableStream');
+const ReadableStream = require('../streams/readableStream');
 const InputOuputError = require('../errors/inputOutputErorr.js/inputOutputError');
 const ConfigError = require('../errors/configError.js/configError');
 const WritableStream = require('../streams/witableStream');
@@ -25,17 +25,17 @@ try {
 
 const transformSteams = config.split('-').map((config) => {
   if (config[0] === 'C') {
-    return new caesarTransormStream(+config[1]);
+    return new CaesarTransormStream(+config[1]);
   } else if (config[0] === 'R') {
-    return new rotTransformStream(+config[1]);
+    return new RotTransformStream(+config[1]);
   } else {
-    return new atbashTransformStream();
+    return new AtbashTransformStream();
   }
 });
 
 try {
-  const readStream = new readableStream(input ? input : false);
-  const writeStream = new WritableStream(output ? output : false);
+  const readStream = input ? new ReadableStream(input) : process.stdin;
+  const writeStream = output ? new WritableStream(output) : process.stdout;
   cli(readStream, writeStream, transformSteams);
 } catch (e) {
   process.stderr('[CLI Error]: Stream errors');

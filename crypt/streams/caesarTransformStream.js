@@ -1,7 +1,7 @@
 const { Transform } = require('stream');
 const caesar = require('../crypt');
 
-class caesarTransform extends Transform {
+class CaesarTransform extends Transform {
   constructor(config) {
     super();
     this.config = config;
@@ -13,4 +13,4 @@ class caesarTransform extends Transform {
   }
 }
 
-module.exports = caesarTransform;
+module.exports = CaesarTransform;

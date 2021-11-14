@@ -1,7 +1,7 @@
 const { Readable } = require('stream');
 const fs = require('fs');
 
-class readableStream extends Readable {
+class ReadableStream extends Readable {
   constructor(file) {
     super();
     this.file = file;
@@ -9,36 +9,25 @@ class readableStream extends Readable {
   }
 
   _construct(callback) {
-    if (this.file) {
-      fs.open(this.file, (err, fd) => {
-        if (err) {
-          callback(err);
-        } else {
-          this.fd = fd;
-          callback();
-        }
-      });
-    } else {
-      process.stdin.setEncoding('utf8');
-      callback();
-    }
+    fs.open(this.file, (err, fd) => {
+      if (err) {
+        callback(err);
+      } else {
+        this.fd = fd;
+        callback();
+      }
+    });
   }
 
   _read(n) {
     const buf = Buffer.alloc(n);
-    if (this.file) {
-      fs.read(this.fd, buf, 0, n, null, (err, bytesRead) => {
-        if (err) {
-          this.destroy(err);
-        } else {
-          this.push(bytesRead > 0 ? buf.slice(0, bytesRead) : null);
-        }
-      });
-    } else {
-      process.stdin.on('data', (chunk) => {
-        this.push(chunk);
-      });
-    }
+    fs.read(this.fd, buf, 0, n, null, (err, bytesRead) => {
+      if (err) {
+        this.destroy(err);
+      } else {
+        this.push(bytesRead > 0 ? buf.slice(0, bytesRead) : null);
+      }
+    });
   }
 
   _destroy(err, callback) {
@@ -50,4 +39,4 @@ class readableStream extends Readable {
   }
 }
 
-module.exports = readableStream;
+module.exports = ReadableStream;
