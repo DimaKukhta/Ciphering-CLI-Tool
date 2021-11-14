@@ -16,7 +16,7 @@ const getCommandArguments = () => {
     throw new ConfigError('Config not found!');
   } else if (config && input && output && process.argv.length > 8) {
     throw new ConfigError('Count of Arguments length error!');
-  } else if (config && (input || output) && process.argv.length > 6) {
+  } else if (config && (input || output) && !(input || output) && process.argv.length > 6) {
     throw new ConfigError('Count of Arguments length error!');
   } else if (config && !input && !output && process.argv.length > 4) {
     throw new ConfigError('Count of Arguments length error!');
