@@ -19,19 +19,19 @@ CLI tool should accept 3 options (short alias and full name):
 ### Now you can use cli tool, several commands: ###
 
 1. crypt -c "C1-C0-A-R1-R0-A-R0-R0-C1-A" -i "./input.txt" -o "./output.txt"
-2. caesar-crypt --action encode --shift 57 --input "./input.txt" --output "./output.txt"
-3. caesar-crypt -a decode -s 7 -i "./input.txt" -o "./output.txt"
-4. caesar-crypt -a encode -s -7 -i "./input.txt"
-5. caesar-crypt -a encode -s 7
-6. caesar-crypt -a decode -s 7 -o "./output.txt"
-7. caesar-crypt -a encode -s 3
+2. crypt -c "A" -i "./input.txt"
+3. crypt -c "C1-C0-A" -o "./output.txt"
+4. crypt --config "C1-C0-A-R1-R0-A-R0-R0-C1-A" --input "./input.txt" --output "./output.txt"
+5. crypt -i "./input.txt" -o "./output.txt" -c "C1-C0-A-R1-R0-A-R0-R0-C1-A"
+6. crypt -c "C1-R1"
+7. crypt -o "output.txt" -c "C1-R1"
 
 ### If you have some problem with installation or with npm, you can use follow commands: ###
 
 1. node ./bin/index.js -c "C1-C0-A-R1-R0-A-R0-R0-C1-A" -i "./input.txt" -o "./output.txt"
-2. node ./bin/index.js --action encode --shift 57 --input "./input.txt" --output "./output.txt"
-3. node ./bin/index.js -a decode -s 7 -i "./input.txt" -o "./output.txt"
-4. node ./bin/index.js -a encode -s -7 -i "./input.txt"
-5. node ./bin/index.js -a encode -s 7
-6. node ./bin/index.js -a decode -s 7 -o "./output.txt"
-7. node ./bin/index.js -a encode -s 3
+2. node ./bin/index.js -c "A" -i "./input.txt"
+3. node ./bin/index.js -c "C1-C0-A" -o "./output.txt"
+4. node ./bin/index.js --config "C1-C0-A-R1-R0-A-R0-R0-C1-A" --input "./input.txt" --output "./output.txt"
+5. node ./bin/index.js -i "./input.txt" -o "./output.txt" -c "C1-C0-A-R1-R0-A-R0-R0-C1-A"
+6. node ./bin/index.js -c "C1-R1"
+7. node ./bin/index.js -o "output.txt" -c "C1-R1"
