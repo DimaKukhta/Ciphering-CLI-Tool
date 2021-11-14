@@ -28,7 +28,7 @@ CLI tool should accept 3 options (short alias and full name):
 
 ### If you have some problem with installation or with npm, you can use follow commands: ###
 
-1. node -c "C1-C0-A-R1-R0-A-R0-R0-C1-A" -i "./input.txt" -o "./output.txt"
+1. node ./bin/index.js -c "C1-C0-A-R1-R0-A-R0-R0-C1-A" -i "./input.txt" -o "./output.txt"
 2. node ./bin/index.js --action encode --shift 57 --input "./input.txt" --output "./output.txt"
 3. node ./bin/index.js -a decode -s 7 -i "./input.txt" -o "./output.txt"
 4. node ./bin/index.js -a encode -s -7 -i "./input.txt"
