@@ -1,6 +1,6 @@
 const error = require('./error');
-const fs = require('fs');
-const { jest } = require('@jest/globals');
+// const { jest } = require('@jest/globals');
+// const {jest: requiredJest} = require('@jest/globals');
 
 test("should get error if the second argument in config isn't valid", () => {
   try {
@@ -50,10 +50,8 @@ test('should get error if config item lenght > 2', () => {
   }
 });
 
-test('should get error if config item lenght > 2', () => {
-  const mockStderr = jest
-    .spyOn(process.stderr, 'write')
-    .mockImplementation(() => {});
-    error('C1', 'input123.txt');
-  expect(mockStderr).toHaveBeenCalledWith('This is a text.\n');
-});
+// test('2', () => {
+//   const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {});
+//     error('C1', 'input123.txt', 'output.txt');
+//     expect(mockExit).toHaveBeenCalledWith(1);
+// });
