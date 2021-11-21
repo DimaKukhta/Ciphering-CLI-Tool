@@ -3,12 +3,13 @@ const { config, input, output } = require('./../program/commander');
 const CaesarTransormStream = require('../streams/caesarTransformStream');
 const RotTransformStream = require('../streams/rotTransformStream');
 const AtbashTransformStream = require('../streams/atbashTransfromStream');
-const cli = require('./../cli');
 const error = require('./../program/error');
 const ReadableStream = require('../streams/readableStream');
 const InputOuputError = require('../errors/inputOutputErorr.js/inputOutputError');
 const ConfigError = require('../errors/configError.js/configError');
 const WritableStream = require('../streams/writableStream');
+const StreamError = require('../errors/streamError/streamError');
+const { pipeline } = require('stream');
 
 try {
   error(config, input, output);
@@ -36,7 +37,16 @@ const transformSteams = config.split('-').map((config) => {
 try {
   const readStream = input ? new ReadableStream(input) : process.stdin;
   const writeStream = output ? new WritableStream(output) : process.stdout;
-  cli(readStream, writeStream, transformSteams);
+  pipeline(readStream, ...transformSteams, writeStream, (err) => {
+    if (err) {
+      try {
+        throw new StreamError('Pipeline error');
+      } catch (e) {
+        process.stderr(`[Stream Error]: ${e.message}`);
+        process.exit(1);
+      }
+    }
+  });
 } catch (e) {
   process.stderr('[CLI Error]: Stream errors');
   process.exit(1);

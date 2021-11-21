@@ -50,8 +50,23 @@ test('should get error if config item lenght > 2', () => {
   }
 });
 
-// test('2', () => {
-//   const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {});
-//     error('C1', 'input123.txt', 'output.txt');
-//     expect(mockExit).toHaveBeenCalledWith(1);
+test('2', () => {
+  const realProcess = process;
+  const exitMock = jest.fn(() => ()=>1);
+  global.process = { ...realProcess, exit: exitMock };
+  try {
+    error('C1', 'input123.txt');
+  } catch (e) {
+    expect(true).toBe(true);
+  }
+  global.process = realProcess;
+});
+
+// test('3', () => {
+//   const realProcess = process;
+//   const exitMock = jest.fn();
+//   global.process = { ...realProcess, exit: exitMock };
+//   error('C1', 'input.txt', 'output123.txt');
+//   expect(exitMock).toHaveBeenCalledWith(1);
+//   global.process = realProcess;
 // });
