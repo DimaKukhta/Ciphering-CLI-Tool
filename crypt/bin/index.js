@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const { config, input, output } = require('./../program/commander');
 const CaesarTransormStream = require('../streams/caesarTransformStream');
 const RotTransformStream = require('../streams/rotTransformStream');
 const AtbashTransformStream = require('../streams/atbashTransfromStream');
@@ -11,7 +10,39 @@ const WritableStream = require('../streams/writableStream');
 const StreamError = require('../errors/streamError/streamError');
 const { pipeline } = require('stream');
 
+let config, input, output = null;
+
+const getCommandArguments = () => {
+  const getValue = (flag) => {
+    const flagIndex = process.argv.indexOf(flag);
+    return flagIndex !== -1 ? process.argv[flagIndex + 1] : null;
+  };
+  
+  const config =
+    getValue('-c') !== null ? getValue('-c') : getValue('--config');
+  const input = getValue('-i') !== null ? getValue('-i') : getValue('--input');
+  const output =
+    getValue('-o') !== null ? getValue('-o') : getValue('--output');
+
+  if (!config) {
+    throw new ConfigError('Config not found!');
+  } else if (config && input && output && process.argv.length > 8) {
+    throw new ConfigError('Count of Arguments length error!');
+  } else if (config && (input || output) && !(input || output) && process.argv.length > 6) {
+    throw new ConfigError('Count of Arguments length error!');
+  } else if (config && !input && !output && process.argv.length > 4) {
+    throw new ConfigError('Count of Arguments length error!');
+  }
+
+  return { config, input, output };
+};
+
 try {
+  const args = getCommandArguments();
+  input = args.input;
+  output = args.output;
+  config = args.config;
+
   error(config, input, output);
 } catch (e) {
   if (e instanceof InputOuputError) {

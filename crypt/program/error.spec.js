@@ -50,23 +50,26 @@ test('should get error if config item lenght > 2', () => {
   }
 });
 
-test('2', () => {
+test("should exit with code 1, if input dosen't exists", () => {
   const realProcess = process;
   const exitMock = jest.fn(() => ()=>1);
   global.process = { ...realProcess, exit: exitMock };
   try {
     error('C1', 'input123.txt');
   } catch (e) {
-    expect(true).toBe(true);
+    expect(exitMock).toHaveBeenCalledWith(1);
   }
   global.process = realProcess;
 });
 
-// test('3', () => {
-//   const realProcess = process;
-//   const exitMock = jest.fn();
-//   global.process = { ...realProcess, exit: exitMock };
-//   error('C1', 'input.txt', 'output123.txt');
-//   expect(exitMock).toHaveBeenCalledWith(1);
-//   global.process = realProcess;
-// });
+test("should exit with code 1, if output dosen't exists", () => {
+  const realProcess = process;
+  const exitMock = jest.fn(() => ()=>1);
+  global.process = { ...realProcess, exit: exitMock };
+  try {
+    error('C1', 'input.txt', 'output123.txt');
+  } catch (e) {
+    expect(exitMock).toHaveBeenCalledWith(1);
+  }
+  global.process = realProcess;
+});
