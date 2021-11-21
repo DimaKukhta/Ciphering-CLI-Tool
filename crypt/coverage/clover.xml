@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1637523940172" clover="3.2.0">
+  <project timestamp="1637523940172" name="All files">
+    <metrics statements="138" coveredstatements="126" conditionals="68" coveredconditionals="61" methods="29" coveredmethods="27" elements="235" coveredelements="214" complexity="0" loc="138" ncloc="138" packages="7" files="12" classes="12"/>
+    <package name="crypt">
+      <metrics statements="37" coveredstatements="37" conditionals="18" coveredconditionals="18" methods="3" coveredmethods="3"/>
+      <file name="crypt.js" path="C:\Users\dmitriy.kukhta\Desktop\git\Ciphering-CLI-Tool\crypt\crypt.js">
+        <metrics statements="23" coveredstatements="23" conditionals="14" coveredconditionals="14" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="12" type="stmt"/>
+        <line num="11" count="12" type="stmt"/>
+        <line num="12" count="12" type="stmt"/>
+        <line num="13" count="38" type="stmt"/>
+        <line num="14" count="38" type="stmt"/>
+        <line num="15" count="38" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="38" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="19" count="38" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="22" count="36" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="30" type="stmt"/>
+        <line num="24" count="30" type="stmt"/>
+        <line num="25" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="12" type="stmt"/>
+        <line num="38" count="4" type="stmt"/>
+      </file>
+      <file name="utils.js" path="C:\Users\dmitriy.kukhta\Desktop\git\Ciphering-CLI-Tool\crypt\utils.js">
+        <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="20" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="19" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="12" count="32" type="stmt"/>
+        <line num="13" count="32" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="12" type="stmt"/>
+        <line num="15" count="12" type="stmt"/>
+        <line num="17" count="12" type="stmt"/>
+        <line num="19" count="20" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="crypt.errors">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="cliError.js" path="C:\Users\dmitriy.kukhta\Desktop\git\Ciphering-CLI-Tool\crypt\errors\cliError.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="9" type="stmt"/>
+        <line num="4" count="9" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="crypt.errors.configError.js">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="configError.js" path="C:\Users\dmitriy.kukhta\Desktop\git\Ciphering-CLI-Tool\crypt\errors\configError.js\configError.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="crypt.errors.inputOutputErorr.js">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="inputOutputError.js" path="C:\Users\dmitriy.kukhta\Desktop\git\Ciphering-CLI-Tool\crypt\errors\inputOutputErorr.js\inputOutputError.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="crypt.errors.streamError">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="streamError.js" path="C:\Users\dmitriy.kukhta\Desktop\git\Ciphering-CLI-Tool\crypt\errors\streamError\streamError.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="crypt.program">
+      <metrics statements="31" coveredstatements="21" conditionals="30" coveredconditionals="25" methods="4" coveredmethods="2"/>
+      <file name="error.js" path="C:\Users\dmitriy.kukhta\Desktop\git\Ciphering-CLI-Tool\crypt\program\error.js">
+        <metrics statements="31" coveredstatements="21" conditionals="30" coveredconditionals="25" methods="4" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="7" type="stmt"/>
+        <line num="7" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="21" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="32" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="39" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="40" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="47" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="60" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="62" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="crypt.streams">
+      <metrics statements="55" coveredstatements="53" conditionals="20" coveredconditionals="18" methods="18" coveredmethods="18"/>
+      <file name="atbashTransfromStream.js" path="C:\Users\dmitriy.kukhta\Desktop\git\Ciphering-CLI-Tool\crypt\streams\atbashTransfromStream.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+      <file name="caesarTransformStream.js" path="C:\Users\dmitriy.kukhta\Desktop\git\Ciphering-CLI-Tool\crypt\streams\caesarTransformStream.js">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+      <file name="readableStream.js" path="C:\Users\dmitriy.kukhta\Desktop\git\Ciphering-CLI-Tool\crypt\streams\readableStream.js">
+        <metrics statements="19" coveredstatements="18" conditionals="10" coveredconditionals="9" methods="7" coveredmethods="7"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="28" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+      </file>
+      <file name="rotTransformStream.js" path="C:\Users\dmitriy.kukhta\Desktop\git\Ciphering-CLI-Tool\crypt\streams\rotTransformStream.js">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+      <file name="writableStream.js" path="C:\Users\dmitriy.kukhta\Desktop\git\Ciphering-CLI-Tool\crypt\streams\writableStream.js">
+        <metrics statements="15" coveredstatements="14" conditionals="6" coveredconditionals="5" methods="6" coveredmethods="6"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

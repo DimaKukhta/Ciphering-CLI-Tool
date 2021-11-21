@@ -1,16 +1,48 @@
 #!/usr/bin/env node
-const { config, input, output } = require('./../program/commander');
 const CaesarTransormStream = require('../streams/caesarTransformStream');
 const RotTransformStream = require('../streams/rotTransformStream');
 const AtbashTransformStream = require('../streams/atbashTransfromStream');
-const cli = require('./../cli');
 const error = require('./../program/error');
 const ReadableStream = require('../streams/readableStream');
 const InputOuputError = require('../errors/inputOutputErorr.js/inputOutputError');
 const ConfigError = require('../errors/configError.js/configError');
-const WritableStream = require('../streams/witableStream');
+const WritableStream = require('../streams/writableStream');
+const StreamError = require('../errors/streamError/streamError');
+const { pipeline } = require('stream');
+
+let config, input, output = null;
+
+const getCommandArguments = () => {
+  const getValue = (flag) => {
+    const flagIndex = process.argv.indexOf(flag);
+    return flagIndex !== -1 ? process.argv[flagIndex + 1] : null;
+  };
+  
+  const config =
+    getValue('-c') !== null ? getValue('-c') : getValue('--config');
+  const input = getValue('-i') !== null ? getValue('-i') : getValue('--input');
+  const output =
+    getValue('-o') !== null ? getValue('-o') : getValue('--output');
+
+  if (!config) {
+    throw new ConfigError('Config not found!');
+  } else if (config && input && output && process.argv.length > 8) {
+    throw new ConfigError('Count of Arguments length error!');
+  } else if (config && (input || output) && !(input || output) && process.argv.length > 6) {
+    throw new ConfigError('Count of Arguments length error!');
+  } else if (config && !input && !output && process.argv.length > 4) {
+    throw new ConfigError('Count of Arguments length error!');
+  }
+
+  return { config, input, output };
+};
 
 try {
+  const args = getCommandArguments();
+  input = args.input;
+  output = args.output;
+  config = args.config;
+
   error(config, input, output);
 } catch (e) {
   if (e instanceof InputOuputError) {
@@ -36,7 +68,16 @@ const transformSteams = config.split('-').map((config) => {
 try {
   const readStream = input ? new ReadableStream(input) : process.stdin;
   const writeStream = output ? new WritableStream(output) : process.stdout;
-  cli(readStream, writeStream, transformSteams);
+  pipeline(readStream, ...transformSteams, writeStream, (err) => {
+    if (err) {
+      try {
+        throw new StreamError('Pipeline error');
+      } catch (e) {
+        process.stderr(`[Stream Error]: ${e.message}`);
+        process.exit(1);
+      }
+    }
+  });
 } catch (e) {
   process.stderr('[CLI Error]: Stream errors');
   process.exit(1);

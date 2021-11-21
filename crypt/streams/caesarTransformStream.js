@@ -6,7 +6,7 @@ class CaesarTransform extends Transform {
     super();
     this.config = config;
   }
-  _transform(chunk, encoding = 'utf-8', callback) {
+  _transform(chunk, encoding, callback) {
     const stuff = this.config === 1 ? 1 : -1;
     chunk = caesar(chunk.toString(), 'caesar', stuff);
     callback(null, chunk);
