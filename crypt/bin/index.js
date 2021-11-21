@@ -8,7 +8,7 @@ const error = require('./../program/error');
 const ReadableStream = require('../streams/readableStream');
 const InputOuputError = require('../errors/inputOutputErorr.js/inputOutputError');
 const ConfigError = require('../errors/configError.js/configError');
-const WritableStream = require('../streams/witableStream');
+const WritableStream = require('../streams/writableStream');
 
 try {
   error(config, input, output);
